@@ -48,12 +48,13 @@ namespace OSLAB7
                 InsertIntoExecuteQueue();
             }
             */
-            InsertIntoExecuteQueue(numbersofprocesses=4);
+            InsertIntoExecuteQueue(numbersofprocesses);
             ViewReadyQueue();
             ViewExecuteQueue();
             Console.ReadKey();
             //return;
         }
+
         static void InsertIntoReadyQueue(int i)
         {
             /*
@@ -210,7 +211,7 @@ namespace OSLAB7
                 Console.Write("\t \t " + objStartProcess.CPUBurst);
                 Console.Write("\t \t" + objStartProcess.IOBurst);
                 Console.Write("\t \t" + objStartProcess.IsSystemProcess);
-                Console.Write("\t \t" + objStartProcess.priority);
+                Console.Write("\t \t \t" + objStartProcess.priority);
 
                 Console.WriteLine("");
 
@@ -221,6 +222,7 @@ namespace OSLAB7
         }
         static void ViewExecuteQueue()
         {
+
             Console.WriteLine("");
             Console.WriteLine("***************************************");
             Console.WriteLine("EXECUTE QUEUE");
@@ -255,13 +257,15 @@ namespace OSLAB7
                 Console.Write("\t \t \t" + objStartProcess.priority);
 
                 Console.WriteLine("");
-                Console.WriteLine("CPU Burst:" + objStartProcess.CPUBurst);
+                Console.WriteLine("Priority:" + objStartProcess.priority);
                 Console.WriteLine("********************");
                 objStartProcess = objStartProcess.next;
             }
         }
+
         public static void sort(Process head)
-        {z
+        {
+            
             Console.WriteLine("Sorting with priority in ascending order");
             Process current = null, index = null;
             Process temp = new Process();
